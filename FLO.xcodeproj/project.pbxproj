@@ -13,6 +13,10 @@
 		B1C522F1267DD61C00D169F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1C522EF267DD61C00D169F7 /* Main.storyboard */; };
 		B1C522F3267DD61E00D169F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1C522F2267DD61E00D169F7 /* Assets.xcassets */; };
 		B1C522F6267DD61E00D169F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1C522F4267DD61E00D169F7 /* LaunchScreen.storyboard */; };
+		B1C52304267DFF4000D169F7 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C52303267DFF4000D169F7 /* PlayerViewModel.swift */; };
+		B1C52307267DFF5100D169F7 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C52306267DFF5100D169F7 /* Music.swift */; };
+		B1C5230F267E01AE00D169F7 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5230E267E01AE00D169F7 /* HttpClient.swift */; };
+		B1C52312267E126600D169F7 /* MusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C52311267E126600D169F7 /* MusicRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		B1C522F2267DD61E00D169F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1C522F5267DD61E00D169F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1C522F7267DD61E00D169F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1C52303267DFF4000D169F7 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		B1C52306267DFF5100D169F7 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		B1C5230E267E01AE00D169F7 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		B1C52311267E126600D169F7 /* MusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,67 @@
 		B1C522E8267DD61C00D169F7 /* FLO */ = {
 			isa = PBXGroup;
 			children = (
+				B1C52314267E150600D169F7 /* Model */,
+				B1C52316267E151700D169F7 /* ViewController */,
+				B1C52315267E150E00D169F7 /* ViewModel */,
+				B1C52318267E153300D169F7 /* Repositories */,
+				B1C5230B267DFF6D00D169F7 /* Network */,
+				B1C5230C267DFF7D00D169F7 /* Resourses */,
 				B1C522E9267DD61C00D169F7 /* AppDelegate.swift */,
 				B1C522EB267DD61C00D169F7 /* SceneDelegate.swift */,
-				B1C522ED267DD61C00D169F7 /* PlayerViewController.swift */,
-				B1C522EF267DD61C00D169F7 /* Main.storyboard */,
-				B1C522F2267DD61E00D169F7 /* Assets.xcassets */,
-				B1C522F4267DD61E00D169F7 /* LaunchScreen.storyboard */,
 				B1C522F7267DD61E00D169F7 /* Info.plist */,
 			);
 			path = FLO;
+			sourceTree = "<group>";
+		};
+		B1C5230B267DFF6D00D169F7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B1C5230E267E01AE00D169F7 /* HttpClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B1C5230C267DFF7D00D169F7 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				B1C522F2267DD61E00D169F7 /* Assets.xcassets */,
+				B1C522F4267DD61E00D169F7 /* LaunchScreen.storyboard */,
+				B1C522EF267DD61C00D169F7 /* Main.storyboard */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		B1C52314267E150600D169F7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B1C52306267DFF5100D169F7 /* Music.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B1C52315267E150E00D169F7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B1C52303267DFF4000D169F7 /* PlayerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B1C52316267E151700D169F7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B1C522ED267DD61C00D169F7 /* PlayerViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B1C52318267E153300D169F7 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				B1C52311267E126600D169F7 /* MusicRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +197,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1C52307267DFF5100D169F7 /* Music.swift in Sources */,
 				B1C522EE267DD61C00D169F7 /* PlayerViewController.swift in Sources */,
+				B1C52304267DFF4000D169F7 /* PlayerViewModel.swift in Sources */,
+				B1C52312267E126600D169F7 /* MusicRepository.swift in Sources */,
 				B1C522EA267DD61C00D169F7 /* AppDelegate.swift in Sources */,
+				B1C5230F267E01AE00D169F7 /* HttpClient.swift in Sources */,
 				B1C522EC267DD61C00D169F7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

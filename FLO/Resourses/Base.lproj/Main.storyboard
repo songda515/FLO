@@ -72,6 +72,9 @@
                                                 <color key="tintColor" systemColor="systemPinkColor"/>
                                                 <state key="normal" image="heart"/>
                                                 <state key="selected" image="heart-fill"/>
+                                                <connections>
+                                                    <action selector="touchUpHeartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U3W-TM-nZW"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -125,6 +128,9 @@
                                                 </constraints>
                                                 <state key="normal" image="play-button"/>
                                                 <state key="selected" image="pause-button"/>
+                                                <connections>
+                                                    <action selector="touchUpPlayPauseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="voX-IO-1mw"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -163,6 +169,7 @@
                     <connections>
                         <outlet property="albumLabel" destination="WyL-r1-9XX" id="hLY-ML-YAI"/>
                         <outlet property="currentTimeLabel" destination="Os2-pf-bi0" id="SvA-8Z-oDi"/>
+                        <outlet property="heartButton" destination="jiE-m2-bZQ" id="g5A-Wg-OkT"/>
                         <outlet property="playPauseButton" destination="Wax-WS-gmf" id="6AP-TJ-XWQ"/>
                         <outlet property="progressSlider" destination="82b-0z-UKh" id="R58-yx-uaK"/>
                         <outlet property="singerLabel" destination="Xh6-Wp-lLb" id="HXC-uD-G4A"/>

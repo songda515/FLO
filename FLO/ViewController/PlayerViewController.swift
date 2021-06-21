@@ -26,7 +26,25 @@ class PlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        viewModel.info()
+        bindViewModel()
+    }
+    
+    // MARK: - Custom method
+    func bindViewModel() {
+        viewModel.music.bind({ (music) in
+            print("initialize ui")
+            self.initializeUI()
+        })
+        viewModel.fetchMusic()
+    }
+    
+    func initializeUI() {
+        DispatchQueue.main.async {
+            let music = self.viewModel.music.value
+            self.albumLabel.text = music.album
+            self.singerLabel.text = music.singer
+            self.titleLabel.text = music.title
+        }
     }
     
     // MARK: - IBAction

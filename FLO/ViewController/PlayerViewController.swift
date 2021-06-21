@@ -34,6 +34,9 @@ class PlayerViewController: UIViewController {
         viewModel.music.bind({ (music) in
             self.initializeUI()
         })
+        viewModel.imageData.bind({ (image) in
+            self.initializeImage()
+        })
         viewModel.fetchMusic()
     }
     
@@ -45,6 +48,14 @@ class PlayerViewController: UIViewController {
             self.titleLabel.text = music.title
         }
     }
+    
+    func initializeImage() {
+        DispatchQueue.main.async {
+            let imageData = self.viewModel.imageData.value
+            self.thumbImage.image = UIImage(data: imageData)
+        }
+    }
+    
     
     // MARK: - IBAction
     @IBAction func touchUpPlayPauseButton(_ sender: UIButton) {

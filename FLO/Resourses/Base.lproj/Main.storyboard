@@ -48,8 +48,11 @@
                                             <constraint firstAttribute="height" constant="85" id="WRZ-pc-grp"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모닝 왈츠" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXp-fx-COD">
-                                        <rect key="frame" x="0.0" y="516" width="92" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모닝 왈츠" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXp-fx-COD" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                        <rect key="frame" x="0.0" y="516" width="354" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="GWa-gw-tnx"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -57,7 +60,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P9A-kf-aK9">
                                         <rect key="frame" x="0.0" y="556" width="354" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자우림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xh6-Wp-lLb">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자우림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xh6-Wp-lLb" customClass="MarqueeLabel" customModule="MarqueeLabel">
                                                 <rect key="frame" x="0.0" y="0.0" width="324" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -152,7 +155,9 @@
                                     <constraint firstItem="RfZ-uH-ia6" firstAttribute="leading" secondItem="kTx-dQ-v5t" secondAttribute="leading" id="EnX-AV-2B5"/>
                                     <constraint firstAttribute="trailing" secondItem="sxY-Zc-IFJ" secondAttribute="trailing" id="HR4-YY-koY"/>
                                     <constraint firstItem="kx8-ls-Mqu" firstAttribute="leading" secondItem="kTx-dQ-v5t" secondAttribute="leading" id="VUx-IN-79N"/>
+                                    <constraint firstAttribute="trailing" secondItem="NXp-fx-COD" secondAttribute="trailing" id="X1P-6Y-6rM"/>
                                     <constraint firstAttribute="trailing" secondItem="P9A-kf-aK9" secondAttribute="trailing" id="lGR-WS-Gph"/>
+                                    <constraint firstItem="NXp-fx-COD" firstAttribute="leading" secondItem="kTx-dQ-v5t" secondAttribute="leading" id="sqT-6G-KdM"/>
                                     <constraint firstAttribute="trailing" secondItem="RfZ-uH-ia6" secondAttribute="trailing" id="vb8-cb-Ryq"/>
                                 </constraints>
                             </stackView>
@@ -183,6 +188,14 @@
             <point key="canvasLocation" x="44.927536231884062" y="64.955357142857139"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="NXp-fx-COD">
+            <size key="intrinsicContentSize" width="92" height="30"/>
+        </designable>
+        <designable name="Xh6-Wp-lLb">
+            <size key="intrinsicContentSize" width="52" height="24"/>
+        </designable>
+    </designables>
     <resources>
         <image name="heart" width="512" height="512"/>
         <image name="heart-fill" width="512" height="512"/>

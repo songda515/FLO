@@ -32,7 +32,6 @@ class PlayerViewController: UIViewController {
     // MARK: - Custom method
     func bindViewModel() {
         viewModel.music.bind({ (music) in
-            print("initialize ui")
             self.initializeUI()
         })
         viewModel.fetchMusic()

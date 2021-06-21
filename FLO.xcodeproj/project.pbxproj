@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,8 +16,7 @@
 		B1C522F6267DD61E00D169F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1C522F4267DD61E00D169F7 /* LaunchScreen.storyboard */; };
 		B1C52304267DFF4000D169F7 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C52303267DFF4000D169F7 /* PlayerViewModel.swift */; };
 		B1C52307267DFF5100D169F7 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C52306267DFF5100D169F7 /* Music.swift */; };
-		B1C5230F267E01AE00D169F7 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5230E267E01AE00D169F7 /* HttpClient.swift */; };
-		B1C52312267E126600D169F7 /* MusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C52311267E126600D169F7 /* MusicRepository.swift */; };
+		B1C5230F267E01AE00D169F7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5230E267E01AE00D169F7 /* APIManager.swift */; };
 		DBD5B8184E8976F1130C6282 /* Pods_FLO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F636CE74350DDB47B8DDD37 /* Pods_FLO.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,8 +34,7 @@
 		B1C522F7267DD61E00D169F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1C52303267DFF4000D169F7 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 		B1C52306267DFF5100D169F7 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
-		B1C5230E267E01AE00D169F7 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
-		B1C52311267E126600D169F7 /* MusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRepository.swift; sourceTree = "<group>"; };
+		B1C5230E267E01AE00D169F7 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		E1E5D0DEEFE0FA2F519AAD9A /* Pods-FLO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLO.release.xcconfig"; path = "Target Support Files/Pods-FLO/Pods-FLO.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,7 +56,6 @@
 				4512C73E32291D779EDB4590 /* Pods-FLO.debug.xcconfig */,
 				E1E5D0DEEFE0FA2F519AAD9A /* Pods-FLO.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -86,7 +83,6 @@
 				B1C52314267E150600D169F7 /* Model */,
 				B1C52316267E151700D169F7 /* ViewController */,
 				B1C52315267E150E00D169F7 /* ViewModel */,
-				B1C52318267E153300D169F7 /* Repositories */,
 				B1C5230B267DFF6D00D169F7 /* Network */,
 				B1C5230C267DFF7D00D169F7 /* Resourses */,
 				B1C522E9267DD61C00D169F7 /* AppDelegate.swift */,
@@ -99,7 +95,7 @@
 		B1C5230B267DFF6D00D169F7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B1C5230E267E01AE00D169F7 /* HttpClient.swift */,
+				B1C5230E267E01AE00D169F7 /* APIManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -137,14 +133,6 @@
 				B1C522ED267DD61C00D169F7 /* PlayerViewController.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		B1C52318267E153300D169F7 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				B1C52311267E126600D169F7 /* MusicRepository.swift */,
-			);
-			path = Repositories;
 			sourceTree = "<group>";
 		};
 		D2B393951C6DD16428CE2309 /* Frameworks */ = {
@@ -273,9 +261,8 @@
 				B1C52307267DFF5100D169F7 /* Music.swift in Sources */,
 				B1C522EE267DD61C00D169F7 /* PlayerViewController.swift in Sources */,
 				B1C52304267DFF4000D169F7 /* PlayerViewModel.swift in Sources */,
-				B1C52312267E126600D169F7 /* MusicRepository.swift in Sources */,
 				B1C522EA267DD61C00D169F7 /* AppDelegate.swift in Sources */,
-				B1C5230F267E01AE00D169F7 /* HttpClient.swift in Sources */,
+				B1C5230F267E01AE00D169F7 /* APIManager.swift in Sources */,
 				B1C522EC267DD61C00D169F7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

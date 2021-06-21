@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B165873F268104FC00ED8A48 /* FLOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B165873E268104FC00ED8A48 /* FLOTests.swift */; };
 		B1C5100C2680B5800023D270 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5100B2680B5800023D270 /* Observable.swift */; };
 		B1C522EA267DD61C00D169F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C522E9267DD61C00D169F7 /* AppDelegate.swift */; };
 		B1C522EC267DD61C00D169F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C522EB267DD61C00D169F7 /* SceneDelegate.swift */; };
@@ -20,9 +21,22 @@
 		DBD5B8184E8976F1130C6282 /* Pods_FLO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F636CE74350DDB47B8DDD37 /* Pods_FLO.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B1658741268104FC00ED8A48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1C522DE267DD61C00D169F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1C522E5267DD61C00D169F7;
+			remoteInfo = FLO;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		4512C73E32291D779EDB4590 /* Pods-FLO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLO.debug.xcconfig"; path = "Target Support Files/Pods-FLO/Pods-FLO.debug.xcconfig"; sourceTree = "<group>"; };
 		4F636CE74350DDB47B8DDD37 /* Pods_FLO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FLO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B165873C268104FC00ED8A48 /* FLOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FLOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B165873E268104FC00ED8A48 /* FLOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLOTests.swift; sourceTree = "<group>"; };
+		B1658740268104FC00ED8A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1C5100B2680B5800023D270 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B1C522E6267DD61C00D169F7 /* FLO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C522E9267DD61C00D169F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +53,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B1658739268104FC00ED8A48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1C522E3267DD61C00D169F7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,10 +80,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B165873D268104FC00ED8A48 /* FLOTests */ = {
+			isa = PBXGroup;
+			children = (
+				B165873E268104FC00ED8A48 /* FLOTests.swift */,
+				B1658740268104FC00ED8A48 /* Info.plist */,
+			);
+			path = FLOTests;
+			sourceTree = "<group>";
+		};
 		B1C522DD267DD61C00D169F7 = {
 			isa = PBXGroup;
 			children = (
 				B1C522E8267DD61C00D169F7 /* FLO */,
+				B165873D268104FC00ED8A48 /* FLOTests */,
 				B1C522E7267DD61C00D169F7 /* Products */,
 				5AF27A4D192BCAB8A51A2D36 /* Pods */,
 				D2B393951C6DD16428CE2309 /* Frameworks */,
@@ -73,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				B1C522E6267DD61C00D169F7 /* FLO.app */,
+				B165873C268104FC00ED8A48 /* FLOTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,6 +178,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B165873B268104FC00ED8A48 /* FLOTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1658745268104FC00ED8A48 /* Build configuration list for PBXNativeTarget "FLOTests" */;
+			buildPhases = (
+				B1658738268104FC00ED8A48 /* Sources */,
+				B1658739268104FC00ED8A48 /* Frameworks */,
+				B165873A268104FC00ED8A48 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1658742268104FC00ED8A48 /* PBXTargetDependency */,
+			);
+			name = FLOTests;
+			productName = FLOTests;
+			productReference = B165873C268104FC00ED8A48 /* FLOTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B1C522E5267DD61C00D169F7 /* FLO */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1C522FA267DD61E00D169F7 /* Build configuration list for PBXNativeTarget "FLO" */;
@@ -174,6 +224,10 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					B165873B268104FC00ED8A48 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = B1C522E5267DD61C00D169F7;
+					};
 					B1C522E5267DD61C00D169F7 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -193,11 +247,19 @@
 			projectRoot = "";
 			targets = (
 				B1C522E5267DD61C00D169F7 /* FLO */,
+				B165873B268104FC00ED8A48 /* FLOTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B165873A268104FC00ED8A48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1C522E4267DD61C00D169F7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -253,6 +315,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B1658738268104FC00ED8A48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B165873F268104FC00ED8A48 /* FLOTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1C522E2267DD61C00D169F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,6 +338,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B1658742268104FC00ED8A48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1C522E5267DD61C00D169F7 /* FLO */;
+			targetProxy = B1658741268104FC00ED8A48 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B1C522EF267DD61C00D169F7 /* Main.storyboard */ = {
@@ -289,6 +367,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B1658743268104FC00ED8A48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CS3BNMZA76;
+				INFOPLIST_FILE = FLOTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jellysong2.tistory.FLOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FLO.app/FLO";
+			};
+			name = Debug;
+		};
+		B1658744268104FC00ED8A48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CS3BNMZA76;
+				INFOPLIST_FILE = FLOTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jellysong2.tistory.FLOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FLO.app/FLO";
+			};
+			name = Release;
+		};
 		B1C522F8267DD61E00D169F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -450,6 +568,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B1658745268104FC00ED8A48 /* Build configuration list for PBXNativeTarget "FLOTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1658743268104FC00ED8A48 /* Debug */,
+				B1658744268104FC00ED8A48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B1C522E1267DD61C00D169F7 /* Build configuration list for PBXProject "FLO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -7,62 +7,74 @@
 
 import UIKit
 
-struct APIManger<T: Codable> {
+struct APIManger {
     
-    private let baseUrl = "https://grepp-programmers-challenges.s3.ap-northeast-2.amazonaws.com/2020-flo/song.json"
-    
-    /// 문자열의 URL 을 인자로 받아 URLRequest 인스턴스로 반환하는 함수
-    private func getUrlRequest(_ urlString: String) -> URLRequest? {
+    enum APIError: Error {
+        case basic(Error)
+        case response
+        case status(Int)
+        case emptyData
         
-        guard let url = URL(string: urlString) else {
-            return nil
+        var message: String {
+            switch self {
+            case .basic(let error):
+                return error.localizedDescription
+            case .response:
+                return "response Error"
+            case .status(let code):
+                return "\(code) status Error"
+            case .emptyData:
+                return "empty Data"
+            }
         }
-        return URLRequest(url: url)
     }
     
+    let baseUrl = "https://grepp-programmers-challenges.s3.ap-northeast-2.amazonaws.com/2020-flo/song.json"
+    
     /// URLRequest 인스턴스를 받아 Request 를 요청하고 Response 를 받아 completion block 으로 전달하는 함수
-    private func request(of urlRequest: URLRequest, completed: @escaping (Result<Data, Error>) -> Void) {
-
-        let session = URLSession(configuration: .default)
+    func request(of urlString: String, completed: @escaping (Result<Data, APIError>) -> Void) {
         
-        let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
-
+        let url = URL(string: urlString)!
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
             guard error == nil else {
-                completed(Result.failure(error!))
-                return
+                return completed(.failure(.basic(error!)))
             }
+            
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
-                return
+                return completed(.failure(.response))
             }
+            
             let successRange = 200..<300
             guard successRange.contains(statusCode) else {
-                return
+                return completed(.failure(.status(statusCode)))
             }
+            
             guard let data = data else {
-                return
+                return completed(.failure(.emptyData))
             }
-            completed(Result.success(data))
-        }
-        dataTask.resume()
+            
+            completed(.success(data))
+            
+        }.resume()
     }
     
     /// JSON Data 를 Music 모델로 파싱해서 반환하는 함수
     func getMusic(completed: @escaping (Music) -> Void) {
         
-        guard let urlRequest = self.getUrlRequest(self.baseUrl) else {
-            completed(Music.EMPTY)
-            return
-        }
-        
-        self.request(of: urlRequest) { (result) in
-            if let jsonData = try? result.get() {
+        self.request(of: self.baseUrl) { (result) in
+            switch result {
+            case .success(let jsonData):
                 do {
                     let decoder = JSONDecoder()
-                    let response = try decoder.decode(Music.self, from: jsonData)
-                    completed(response)
+                    let music = try decoder.decode(Music.self, from: jsonData)
+                    completed(music)
                 } catch {
                     completed(Music.EMPTY)
                 }
+            case .failure(let error):
+                print(error.message)
+                completed(Music.EMPTY)
             }
         }
     }
@@ -70,15 +82,12 @@ struct APIManger<T: Codable> {
     /// image URL 을 전달받아 Data 타입으로 반환하는 함수
     func loadImageData(url: String, completed: @escaping (Data) -> Void) {
         
-        guard let urlRequest = self.getUrlRequest(url) else {
-            completed(Data())
-            return
-        }
-        
-        self.request(of: urlRequest) { (result) in
-            if let data = try? result.get() {
+        self.request(of: url) { (result) in
+            switch result {
+            case .success(let data):
                 completed(data)
-            } else {
+            case .failure(let error):
+                print(error.message)
                 completed(Data())
             }
         }

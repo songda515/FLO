@@ -9,7 +9,7 @@ import Foundation
 
 class PlayerViewModel {
 
-    var apiManager: APIManger = APIManger<Music>()
+    var apiManager: APIManger = APIManger()
     var music: Observable<Music> = Observable(Music.EMPTY)
     var imageData: Observable<Data> = Observable(Data())
     

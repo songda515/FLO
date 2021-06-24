@@ -11,8 +11,7 @@ import AVFoundation
 class PlayerViewController: UIViewController {
     
     // MARK: - Properties
-    var player: AVAudioPlayer!
-    var timer: Timer!
+    var player = MusicPlayer.shared
     
     // MARK: - IBOutlet
     @IBOutlet var thumbImage: UIImageView!
@@ -63,45 +62,16 @@ class PlayerViewController: UIViewController {
     }
     
     func initializePlayer() {
+        
         DispatchQueue.main.async {
-            guard let url = URL(string: self.viewModel.music.value.file) else {
-                print("wrong url")
-                return
-            }
-            do {
-                let soundData = try Data(contentsOf: url)
-                self.player = try AVAudioPlayer(data: soundData)
-                self.player.delegate = self
-                self.player.prepareToPlay()
-                self.progressSlider.maximumValue = Float(self.player.duration)
-                self.progressSlider.minimumValue = 0
-                self.progressSlider.value = Float(self.player.currentTime)
-                self.totalTimeLabel.text = self.getTimeLabelText(time: self.player.duration)
-            } catch let error as NSError {
-                print("플레이어 초기화 실패")
-                print("코드: \(error.code), 메세지 : \(error.localizedDescription)")
-            }
+            self.player.initPlayer(url: self.viewModel.music.value.file)
+            //self.player.delegate = self
+            //self.player.prepareToPlay()
+            self.progressSlider.maximumValue = self.player.maximumValue
+            self.progressSlider.minimumValue = 0
+            self.progressSlider.value = self.player.currentValue
+            self.totalTimeLabel.text = self.player.totalTime
         }
-    }
-    
-    func makeAndFireTimer() {
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block:  { [unowned self] (timer: Timer) in
-            if self.progressSlider.isTracking { return }
-            self.currentTimeLabel.text = getTimeLabelText(time: self.player.currentTime)
-            self.progressSlider.value = Float(self.player.currentTime)
-        })
-        self.timer.fire()
-    }
-    
-    func getTimeLabelText(time: TimeInterval) -> String {
-        let minute: Int = Int(time / 60)
-        let second: Int = Int(time.truncatingRemainder(dividingBy: 60))
-        return String(format: "%02ld:%02ld", minute, second)
-    }
-    
-    func invalidateTimer() {
-        self.timer.invalidate()
-        self.timer = nil
     }
     
     // MARK: - IBAction
@@ -109,11 +79,13 @@ class PlayerViewController: UIViewController {
         sender.isSelected.toggle()
         
         if sender.isSelected {
-            self.player.play()
-            self.makeAndFireTimer()
+            self.player.play { Timer in
+                if self.progressSlider.isTracking { return }
+                self.currentTimeLabel.text = self.player.currentTime
+                self.progressSlider.value = self.player.currentValue
+            }
         } else {
             self.player.pause()
-            self.invalidateTimer()
         }
     }
     
@@ -122,9 +94,9 @@ class PlayerViewController: UIViewController {
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
-        self.currentTimeLabel.text = getTimeLabelText(time: TimeInterval(sender.value))
+        self.currentTimeLabel.text = self.player.timeText(time: TimeInterval(sender.value))
         if sender.isTracking { return }
-        self.player.currentTime = TimeInterval(sender.value)
+        self.player.setCurrentTime(TimeInterval(sender.value))
     }
 }
 

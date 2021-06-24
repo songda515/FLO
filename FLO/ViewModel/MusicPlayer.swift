@@ -63,20 +63,12 @@ class MusicPlayer {
     
     func play(_ block: @escaping (Timer) -> Void) {
         self.player.play()
-        self.makeAndFireTimer(block)
-    }
-    
-    func pause() {
-        self.player.pause()
-        self.invalidateTimer()
-    }
-    
-    func makeAndFireTimer(_ block: @escaping (Timer) -> Void) {
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: block)
         self.timer.fire()
     }
     
-    func invalidateTimer() {
+    func pause() {
+        self.player.pause()
         self.timer.invalidate()
         self.timer = nil
     }

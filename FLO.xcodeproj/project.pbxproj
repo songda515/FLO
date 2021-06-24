@@ -155,6 +155,7 @@
 		B1C52315267E150E00D169F7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B170C51626830EBF009A62AA /* MusicPlayer.swift */,
 				B1C52303267DFF4000D169F7 /* PlayerViewModel.swift */,
 				B1C5100B2680B5800023D270 /* Observable.swift */,
 			);
@@ -165,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				B1C522ED267DD61C00D169F7 /* PlayerViewController.swift */,
-				B170C51626830EBF009A62AA /* MusicPlayer.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";

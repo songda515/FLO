@@ -14,8 +14,8 @@ class PlayerViewModel {
     var imageData: Observable<Data> = Observable(Data())
     
     func fetchMusic() {
-        print("fetch music")
         self.apiManager.getMusic { (music) in
+            print("fetch music ::", music.title)
             self.music = Observable(music)
             let imageURL = music.image
             self.apiManager.loadImageData(url: imageURL) { (image) in

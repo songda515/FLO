@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B165873F268104FC00ED8A48 /* FLOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B165873E268104FC00ED8A48 /* FLOTests.swift */; };
+		B170C51726830EBF009A62AA /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170C51626830EBF009A62AA /* MusicPlayer.swift */; };
 		B1C5100C2680B5800023D270 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5100B2680B5800023D270 /* Observable.swift */; };
 		B1C522EA267DD61C00D169F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C522E9267DD61C00D169F7 /* AppDelegate.swift */; };
 		B1C522EC267DD61C00D169F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C522EB267DD61C00D169F7 /* SceneDelegate.swift */; };
@@ -37,6 +38,7 @@
 		B165873C268104FC00ED8A48 /* FLOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FLOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B165873E268104FC00ED8A48 /* FLOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLOTests.swift; sourceTree = "<group>"; };
 		B1658740268104FC00ED8A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B170C51626830EBF009A62AA /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		B1C5100B2680B5800023D270 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B1C522E6267DD61C00D169F7 /* FLO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C522E9267DD61C00D169F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				B1C522ED267DD61C00D169F7 /* PlayerViewController.swift */,
+				B170C51626830EBF009A62AA /* MusicPlayer.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			files = (
 				B1C5100C2680B5800023D270 /* Observable.swift in Sources */,
 				B1C52307267DFF5100D169F7 /* Music.swift in Sources */,
+				B170C51726830EBF009A62AA /* MusicPlayer.swift in Sources */,
 				B1C522EE267DD61C00D169F7 /* PlayerViewController.swift in Sources */,
 				B1C52304267DFF4000D169F7 /* PlayerViewModel.swift in Sources */,
 				B1C522EA267DD61C00D169F7 /* AppDelegate.swift in Sources */,

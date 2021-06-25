@@ -46,6 +46,13 @@ class MusicPlayer {
         let second: Int = Int(time.truncatingRemainder(dividingBy: 60))
         return String(format: "%02ld:%02ld", minute, second)
     }
+    
+    var timeInt: Int {
+        let time = self.player.currentTime
+        let minute: Int = Int(time / 60)
+        let second: Int = Int(time.truncatingRemainder(dividingBy: 60))
+        return minute*60 + second
+    }
 
     func initPlayer(url urlString: String) {
         guard let url = URL(string: urlString) else {
@@ -63,7 +70,7 @@ class MusicPlayer {
     
     func play(_ block: @escaping (Timer) -> Void) {
         self.player.play()
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: block)
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: block)
         self.timer.fire()
     }
     

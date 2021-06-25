@@ -24,7 +24,8 @@ class PlayerViewController: UIViewController {
     @IBOutlet var currentTimeLabel: UILabel!
     @IBOutlet var totalTimeLabel: UILabel!
     @IBOutlet weak var heartButton: UIButton!
-
+    @IBOutlet weak var lyricsLabel: UILabel!
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,8 @@ class PlayerViewController: UIViewController {
     func bindViewModel() {
         viewModel.music.bind({ (music) in
             DispatchQueue.main.async {
-                self.viewModel.configure(self)
+                self.initializeUI()
+                self.initializePlayer()
             }
         })
         viewModel.fetchMusic()
@@ -52,6 +54,9 @@ class PlayerViewController: UIViewController {
                 if self.progressSlider.isTracking { return }
                 self.currentTimeLabel.text = self.player.currentTime
                 self.progressSlider.value = self.player.currentValue
+                self.viewModel.getCurrentLyrics { lyrics in
+                    self.lyricsLabel.text = lyrics
+                }
             }
         } else {
             self.player.pause()
@@ -66,6 +71,27 @@ class PlayerViewController: UIViewController {
         self.currentTimeLabel.text = self.player.timeText(time: TimeInterval(sender.value))
         if sender.isTracking { return }
         self.player.setCurrentTime(TimeInterval(sender.value))
+        self.viewModel.getCurrentLyrics { lyrics in
+            self.lyricsLabel.text = lyrics
+        }
+    }
+}
+
+extension PlayerViewController {
+    
+    func initializeUI() {
+        self.albumLabel.text = viewModel.album
+        self.singerLabel.text = viewModel.singer
+        self.titleLabel.text = viewModel.title
+        self.thumbImage.image = UIImage(data: viewModel.imageData)
+    }
+    
+    func initializePlayer() {
+        self.player.initPlayer(url: viewModel.musicFileUrl)
+        self.progressSlider.maximumValue = player.maximumValue
+        self.progressSlider.minimumValue = 0
+        self.progressSlider.value = player.currentValue
+        self.totalTimeLabel.text = player.totalTime
     }
 }
 

@@ -178,6 +178,7 @@
                         <outlet property="albumLabel" destination="WyL-r1-9XX" id="hLY-ML-YAI"/>
                         <outlet property="currentTimeLabel" destination="Os2-pf-bi0" id="SvA-8Z-oDi"/>
                         <outlet property="heartButton" destination="jiE-m2-bZQ" id="g5A-Wg-OkT"/>
+                        <outlet property="lyricsLabel" destination="IH8-ul-eUb" id="K0N-jC-lZw"/>
                         <outlet property="playPauseButton" destination="Wax-WS-gmf" id="6AP-TJ-XWQ"/>
                         <outlet property="progressSlider" destination="82b-0z-UKh" id="R58-yx-uaK"/>
                         <outlet property="singerLabel" destination="Xh6-Wp-lLb" id="HXC-uD-G4A"/>

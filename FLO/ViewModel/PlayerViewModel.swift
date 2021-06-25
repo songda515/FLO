@@ -9,18 +9,45 @@ import UIKit
 
 class PlayerViewModel {
 
+    // MARK: - Properties
     var apiManager: APIManger
     var music: Observable<Music>
     var imageData: Data
     var player: MusicPlayer
     var lyricsDict: [Int:String]
     
+    // MARK: Computed properties
+    var album: String {
+        return music.value.album
+    }
+    
+    var title: String {
+        return music.value.title
+    }
+    
+    var singer: String {
+        return music.value.singer
+    }
+    
+    var musicFileUrl: String {
+        return music.value.file
+    }
+    
+    var lyrics: String {
+        return music.value.lyrics
+    }
+    
+    var duration: Int {
+        return music.value.duration
+    }
+    
+    
     init() {
         self.apiManager = APIManger()
         self.music = Observable(Music.EMPTY)
         self.imageData = Data()
         self.player = MusicPlayer.shared
-        self.lyricsDict = [Int:String]()
+        self.lyricsDict = [0: "간주중"]
     }
     
     func fetchMusic() {
@@ -36,7 +63,7 @@ class PlayerViewModel {
     }
     
     func getLyrics() {
-        let lyrics = music.value.lyrics.split(separator: "\n").map{String($0)}
+        let lyrics = self.lyrics.split(separator: "\n").map{String($0)}
         for line in lyrics {
             let time = line.getArrayAfterRegex(regex: "[0-9]*:*").joined()
             let splitedTime = time.split(separator: ":").map{String($0)}
@@ -45,30 +72,28 @@ class PlayerViewModel {
             let timeKey = minute * 60 + second
             lyricsDict[timeKey] = String(line.split(separator: "]")[1])
         }
-    }
-}
-
-extension PlayerViewModel {
-    
-    func configure(_ view: PlayerViewController) {
-        initalizeUI(view)
-        initializePlayer(view)
+        lyricsDict[duration] = ""
     }
     
-    func initalizeUI(_ view: PlayerViewController) {
-        view.albumLabel.text = music.value.album
-        view.singerLabel.text = music.value.singer
-        view.titleLabel.text = music.value.title
-        view.thumbImage.image = UIImage(data: imageData)
+    func getCurrentLyrics(completed: @escaping (String) -> Void) {
+        let currentTime = self.player.timeInt
+        let times = self.lyricsDict.keys.sorted()
+        let index = self.bisectRight(times, currentTime) - 1
+        completed(self.lyricsDict[times[index]] ?? "")
     }
     
-    func initializePlayer(_ view: PlayerViewController) {
-        player.initPlayer(url: music.value.file)
-        print(player.player)
-        view.progressSlider.maximumValue = player.maximumValue
-        view.progressSlider.minimumValue = 0
-        view.progressSlider.value = player.currentValue
-        view.totalTimeLabel.text = player.totalTime
+    func bisectRight(_ array: [Int], _ target: Int) -> Int {
+        var start = 0
+        var end = array.count - 1
+        while start < end {
+            let mid = (start + end) / 2
+            if target < array[mid] {
+                end = mid
+            } else {
+                start = mid + 1
+            }
+        }
+        return start
     }
 }
 

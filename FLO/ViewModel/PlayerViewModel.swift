@@ -8,6 +8,9 @@
 import UIKit
 
 class PlayerViewModel {
+    
+    // MARK: - Singleton
+    static let shared = PlayerViewModel()
 
     // MARK: - Properties
     var apiManager: APIManger
@@ -15,6 +18,7 @@ class PlayerViewModel {
     var imageData: Data
     var player: MusicPlayer
     var lyricsDict: [Int:String]
+    var lyricsArray: [String]
     
     // MARK: Computed properties
     var album: String {
@@ -37,6 +41,10 @@ class PlayerViewModel {
         return music.value.lyrics
     }
     
+    var lyricsCount: Int {
+        return lyricsDict.count
+    }
+    
     var duration: Int {
         return music.value.duration
     }
@@ -47,7 +55,8 @@ class PlayerViewModel {
         self.music = Observable(Music.EMPTY)
         self.imageData = Data()
         self.player = MusicPlayer.shared
-        self.lyricsDict = [0: "간주중"]
+        self.lyricsDict = [Int:String]()
+        self.lyricsArray = [String]()
     }
     
     func fetchMusic() {
@@ -64,15 +73,18 @@ class PlayerViewModel {
     
     func getLyrics() {
         let lyrics = self.lyrics.split(separator: "\n").map{String($0)}
+        lyricsDict[0] = "간주중"
         for line in lyrics {
             let time = line.getArrayAfterRegex(regex: "[0-9]*:*").joined()
             let splitedTime = time.split(separator: ":").map{String($0)}
             let minute = Int(splitedTime[0])!
             let second = Int(splitedTime[1])!
             let timeKey = minute * 60 + second
-            lyricsDict[timeKey] = String(line.split(separator: "]")[1])
+            let value = String(line.split(separator: "]")[1])
+            lyricsDict[timeKey] = value
         }
-        lyricsDict[duration] = ""
+        lyricsDict[duration] = "간주중"
+        lyricsArray = lyricsDict.sorted { $0.key < $1.key }.map { $0.value }
     }
     
     func getCurrentLyrics(completed: @escaping (String) -> Void) {
@@ -80,6 +92,13 @@ class PlayerViewModel {
         let times = self.lyricsDict.keys.sorted()
         let index = self.bisectRight(times, currentTime) - 1
         completed(self.lyricsDict[times[index]] ?? "")
+    }
+    
+    func getCurrentLyricsIndex() -> Int {
+        let currentTime = self.player.timeInt
+        let times = self.lyricsDict.keys.sorted()
+        let index = self.bisectRight(times, currentTime) - 1
+        return index
     }
     
     func bisectRight(_ array: [Int], _ target: Int) -> Int {

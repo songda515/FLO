@@ -12,7 +12,7 @@ class PlayerViewController: UIViewController {
     
     // MARK: - Properties
     var player = MusicPlayer.shared
-    var viewModel = PlayerViewModel()
+    var viewModel = PlayerViewModel.shared
     
     // MARK: - IBOutlet
     @IBOutlet var thumbImage: UIImageView!

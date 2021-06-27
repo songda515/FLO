@@ -1,8 +1,7 @@
 # FLO
 프로그래머스 과제관 - FLO iOS 앱 [👉Link](https://programmers.co.kr/skill_check_assignments/2)
-![Uploading Simulator_ScreenShot_iPhone11.png](https://github.com/songda515/FLO/blob/main/Images/Simulator_ScreenShot_iPhone11.png)
 
-
+<img src = "Images/Simulator_ScreenShot_iPhone11.png" width="30%" height="30%">
 
 ## 👣 Dev History
 ### [LaunchScreen] UI 개발 #1

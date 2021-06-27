@@ -206,7 +206,7 @@
                                 <rect key="frame" x="30" y="105" width="354" height="537"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LyricsCell" id="HwW-c3-Lye" customClass="LyricsCell" customModule="FLO" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LyricsCell" id="HwW-c3-Lye" customClass="LyricsCell" customModule="FLO" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="354" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HwW-c3-Lye" id="gac-hw-d9U">
@@ -253,6 +253,7 @@
                                         <state key="normal" image="play-button"/>
                                         <state key="selected" image="pause-button"/>
                                         <connections>
+                                            <action selector="touchUpPlayPauseButton:" destination="5Do-rJ-mv8" eventType="touchUpInside" id="4CT-lY-2Rd"/>
                                             <action selector="touchUpPlayPauseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RuL-Fu-Zo6"/>
                                         </connections>
                                     </button>
@@ -317,14 +318,14 @@
                                     <action selector="touchUpCloseButton:" destination="5Do-rJ-mv8" eventType="touchUpInside" id="R0u-n2-ptB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQq-L1-kBX">
-                                <rect key="frame" x="30" y="54" width="104" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQq-L1-kBX">
+                                <rect key="frame" x="30" y="54" width="137" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
-                                <state key="normal" title="Toggle OFF">
+                                <state key="normal" title="Seek Mode OFF">
                                     <color key="titleColor" systemColor="systemPinkColor"/>
                                 </state>
-                                <state key="selected" title="Toggle ON"/>
+                                <state key="selected" title="Seek Mode ON"/>
                                 <connections>
                                     <action selector="touchUptoggleButton:" destination="5Do-rJ-mv8" eventType="touchUpInside" id="PxR-OU-6zO"/>
                                 </connections>

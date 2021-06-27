@@ -19,6 +19,7 @@ class PlayerViewModel {
     var player: MusicPlayer
     var lyricsDict: [Int:String]
     var lyricsArray: [String]
+    var prevIndex: Int
     
     // MARK: Computed properties
     var album: String {
@@ -49,7 +50,6 @@ class PlayerViewModel {
         return music.value.duration
     }
     
-    
     init() {
         self.apiManager = APIManger()
         self.music = Observable(Music.EMPTY)
@@ -57,6 +57,7 @@ class PlayerViewModel {
         self.player = MusicPlayer.shared
         self.lyricsDict = [Int:String]()
         self.lyricsArray = [String]()
+        self.prevIndex = -1
     }
     
     func fetchMusic() {
@@ -88,16 +89,16 @@ class PlayerViewModel {
     }
     
     func getCurrentLyrics(completed: @escaping (String) -> Void) {
-        let currentTime = self.player.timeInt
-        let times = self.lyricsDict.keys.sorted()
-        let index = self.bisectRight(times, currentTime) - 1
-        completed(self.lyricsDict[times[index]] ?? "")
+        let currentTime = Int(player.currentValue)
+        let times = lyricsDict.keys.sorted()
+        let index = bisectRight(times, currentTime) - 1
+        completed(lyricsDict[times[index]] ?? "")
     }
     
     func getCurrentLyricsIndex() -> Int {
-        let currentTime = self.player.timeInt
-        let times = self.lyricsDict.keys.sorted()
-        let index = self.bisectRight(times, currentTime) - 1
+        let currentTime = Int(player.currentValue)
+        let times = lyricsDict.keys.sorted()
+        let index = bisectRight(times, currentTime) - 1
         return index
     }
     

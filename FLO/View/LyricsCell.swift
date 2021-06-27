@@ -21,5 +21,22 @@ class LyricsCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setNowLyrics() {
+        if #available(iOS 13.0, *) {
+            self.backgroundColor = .systemGray5
+        } else {
+            // Fallback on earlier versions
+            backgroundColor = .lightGray
+        }
+        lyricsLabel.textColor = .systemPink
+        lyricsLabel.font = UIFont.boldSystemFont(ofSize: lyricsLabel.font.pointSize)
+    }
+    
+    func desetPrevLyrics() {
+        self.backgroundColor = .clear
+        lyricsLabel.textColor = .black
+        lyricsLabel.font = UIFont.systemFont(ofSize: lyricsLabel.font.pointSize)
+    }
 
 }

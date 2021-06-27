@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class LyricsViewController: UIViewController {
     
@@ -13,6 +14,7 @@ class LyricsViewController: UIViewController {
     var player = MusicPlayer.shared
     var viewModel = PlayerViewModel.shared
 
+    // MARK: - IBOutlets
     @IBOutlet weak var lyricsTableView: UITableView!
     @IBOutlet weak var progressSlider: UISlider!
     @IBOutlet weak var currentTimeLabel: UILabel!
@@ -21,24 +23,14 @@ class LyricsViewController: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var toggleButton: UIButton!
     
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         initializeUI()
+        addObserverToPlayer()
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    // MARK: - IBActions
     @IBAction func touchUptoggleButton(_ sender: UIButton) {
         toggleButton.isSelected.toggle()
     }
@@ -47,13 +39,20 @@ class LyricsViewController: UIViewController {
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
-        currentTimeLabel.text = self.player.timeText(time: TimeInterval(sender.value))
-        if sender.isTracking { return }
-        
-        player.setCurrentTime(TimeInterval(sender.value))
-        let indexPath = IndexPath(row: viewModel.getCurrentLyricsIndex(), section: 0)
-        lyricsTableView.scrollToRow(at: indexPath, at: .top, animated: true)
-        lyricsTableView.cellForRow(at: indexPath)?.isSelected = true
+        let seconds = Double(sender.value)
+        currentTimeLabel.text = player.timeText(time: seconds)
+        if sender.isTracking == false {
+            player.seek(CMTime(seconds: seconds, preferredTimescale: 100))
+        }
+    }
+    
+    @IBAction func touchUpPlayPauseButton(_ sender: UIButton) {
+        if player.isPlaying {
+            player.pause()
+        } else {
+            player.play()
+        }
+        sender.isSelected = player.isPlaying
     }
 }
 
@@ -72,21 +71,63 @@ extension LyricsViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
-   
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if toggleButton.isSelected {
+            let seconds = viewModel.lyricsDict.sorted { $0.key < $1.key }[indexPath.row].key
+            let time = CMTime(seconds: Double(seconds), preferredTimescale: 100)
+            updateTime(time)
+            player.seek(time)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
+    }
 }
 
 extension LyricsViewController {
     
     // MARK: - Custom Function
     func initializeUI() {
-        self.progressSlider.maximumValue = player.maximumValue
-        self.progressSlider.minimumValue = 0
-        self.progressSlider.value = player.currentValue
-        self.totalTimeLabel.text = player.totalTime
-        
-        let indexPath = IndexPath(row: viewModel.getCurrentLyricsIndex(), section: 0)
-        lyricsTableView.scrollToRow(at: indexPath, at: .top, animated: true)
-        lyricsTableView.cellForRow(at: indexPath)?.isSelected = true
+        totalTimeLabel.text = player.timeText(time: Double(viewModel.duration))
+        progressSlider.maximumValue = Float(player.duration)
+        playPauseButton.isSelected = player.isPlaying
+        updateTime(player.currentTime)
     }
     
+    func addObserverToPlayer() {
+        player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: DispatchQueue.main) { time in
+            self.updateTime(time)
+        }
+    }
+    
+    func updateTime(_ time: CMTime) {
+        currentTimeLabel.text = player.currentTimeText
+        progressSlider.value = Float(player.currentValue)
+        let index = viewModel.getCurrentLyricsIndex()
+        guard viewModel.prevIndex != index else { return }
+        updateLyricsTableViewCell(prev: viewModel.prevIndex, index: index)
+        viewModel.prevIndex = index
+    }
+    
+    func updateLyricsTableViewCell(prev: Int, index: Int) {
+        if index < 2 {
+            lyricsTableView.scrollToRow(at: IndexPath(row: 0, section: 0),
+                                        at: .top, animated: true)
+        } else {
+            lyricsTableView.scrollToRow(at: IndexPath(row: index-2, section: 0),
+                                        at: .top, animated: true)
+        }
+        
+        let indexPath = IndexPath(row: index, section: 0)
+        if let cell = lyricsTableView.cellForRow(at: indexPath) as? LyricsCell {
+            cell.setNowLyrics()
+        }
+        
+        guard prev >= 0 else { return }
+        let prevIndexPath = IndexPath(row: prev, section: 0)
+        if let prevCell = lyricsTableView.cellForRow(at: prevIndexPath) as? LyricsCell {
+            prevCell.desetPrevLyrics()
+            lyricsTableView.deselectRow(at: prevIndexPath, animated: true)
+        }
+    }
 }

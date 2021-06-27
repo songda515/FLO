@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B10D82A226887B2200D57B2A /* LyricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10D82A126887B2200D57B2A /* LyricsViewController.swift */; };
+		B10D82A4268882F200D57B2A /* Images in Resources */ = {isa = PBXBuildFile; fileRef = B10D82A3268882F200D57B2A /* Images */; };
 		B165873F268104FC00ED8A48 /* FLOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B165873E268104FC00ED8A48 /* FLOTests.swift */; };
 		B170C51726830EBF009A62AA /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170C51626830EBF009A62AA /* MusicPlayer.swift */; };
 		B1C5100C2680B5800023D270 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5100B2680B5800023D270 /* Observable.swift */; };
@@ -37,6 +38,7 @@
 		4512C73E32291D779EDB4590 /* Pods-FLO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLO.debug.xcconfig"; path = "Target Support Files/Pods-FLO/Pods-FLO.debug.xcconfig"; sourceTree = "<group>"; };
 		4F636CE74350DDB47B8DDD37 /* Pods_FLO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FLO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B10D82A126887B2200D57B2A /* LyricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsViewController.swift; sourceTree = "<group>"; };
+		B10D82A3268882F200D57B2A /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		B165873C268104FC00ED8A48 /* FLOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FLOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B165873E268104FC00ED8A48 /* FLOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLOTests.swift; sourceTree = "<group>"; };
 		B1658740268104FC00ED8A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				B1C522E7267DD61C00D169F7 /* Products */,
 				5AF27A4D192BCAB8A51A2D36 /* Pods */,
 				D2B393951C6DD16428CE2309 /* Frameworks */,
+				B10D82A3268882F200D57B2A /* Images */,
 			);
 			sourceTree = "<group>";
 		};
@@ -270,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B10D82A4268882F200D57B2A /* Images in Resources */,
 				B1C522F6267DD61E00D169F7 /* LaunchScreen.storyboard in Resources */,
 				B1C522F3267DD61E00D169F7 /* Assets.xcassets in Resources */,
 				B1C522F1267DD61C00D169F7 /* Main.storyboard in Resources */,

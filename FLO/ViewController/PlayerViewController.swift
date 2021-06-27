@@ -24,6 +24,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet var currentTimeLabel: UILabel!
     @IBOutlet var totalTimeLabel: UILabel!
     @IBOutlet weak var heartButton: UIButton!
+    @IBOutlet weak var lyricsView: UIView!
     @IBOutlet weak var lyricsLabel: UILabel!
     
     // MARK: - View Lifecycle
@@ -31,18 +32,8 @@ class PlayerViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        addGestureLyricsView()
         bindViewModel()
-    }
-    
-    // MARK: - Custom method
-    func bindViewModel() {
-        viewModel.music.bind({ (music) in
-            DispatchQueue.main.async {
-                self.initializeUI()
-                self.initializePlayer()
-            }
-        })
-        viewModel.fetchMusic()
     }
     
     // MARK: - IBAction
@@ -75,9 +66,37 @@ class PlayerViewController: UIViewController {
             self.lyricsLabel.text = lyrics
         }
     }
+    
+    @IBAction func tappedLyricsView(_ sender: UIView) {
+        if #available(iOS 13.0, *) {
+            let lyricsVC = storyboard!.instantiateViewController(identifier: "LyricsViewController")
+            lyricsVC.modalPresentationStyle = .fullScreen
+            self.present(lyricsVC, animated: true, completion: nil)
+        } else {
+            // Fallback on earlier versions
+            let lyricsVC = storyboard!.instantiateViewController(withIdentifier: "LyricsViewController")
+            self.present(lyricsVC, animated: true, completion: nil)
+        }
+    }
 }
 
 extension PlayerViewController {
+    
+    // MARK: - Custom method
+    func addGestureLyricsView() {
+        let tapGasture = UITapGestureRecognizer(target: self, action: #selector(tappedLyricsView(_:)))
+        self.lyricsView.addGestureRecognizer(tapGasture)
+    }
+    
+    func bindViewModel() {
+        viewModel.music.bind({ (music) in
+            DispatchQueue.main.async {
+                self.initializeUI()
+                self.initializePlayer()
+            }
+        })
+        viewModel.fetchMusic()
+    }
     
     func initializeUI() {
         self.albumLabel.text = viewModel.album

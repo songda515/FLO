@@ -3,45 +3,104 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B10D82A226887B2200D57B2A /* LyricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10D82A126887B2200D57B2A /* LyricsViewController.swift */; };
+		B165873F268104FC00ED8A48 /* FLOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B165873E268104FC00ED8A48 /* FLOTests.swift */; };
+		B170C51726830EBF009A62AA /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170C51626830EBF009A62AA /* MusicPlayer.swift */; };
+		B1C5100C2680B5800023D270 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5100B2680B5800023D270 /* Observable.swift */; };
 		B1C522EA267DD61C00D169F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C522E9267DD61C00D169F7 /* AppDelegate.swift */; };
 		B1C522EC267DD61C00D169F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C522EB267DD61C00D169F7 /* SceneDelegate.swift */; };
-		B1C522EE267DD61C00D169F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C522ED267DD61C00D169F7 /* ViewController.swift */; };
+		B1C522EE267DD61C00D169F7 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C522ED267DD61C00D169F7 /* PlayerViewController.swift */; };
 		B1C522F1267DD61C00D169F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1C522EF267DD61C00D169F7 /* Main.storyboard */; };
 		B1C522F3267DD61E00D169F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1C522F2267DD61E00D169F7 /* Assets.xcassets */; };
 		B1C522F6267DD61E00D169F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1C522F4267DD61E00D169F7 /* LaunchScreen.storyboard */; };
+		B1C52304267DFF4000D169F7 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C52303267DFF4000D169F7 /* PlayerViewModel.swift */; };
+		B1C52307267DFF5100D169F7 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C52306267DFF5100D169F7 /* Music.swift */; };
+		B1C5230F267E01AE00D169F7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5230E267E01AE00D169F7 /* APIManager.swift */; };
+		DBD5B8184E8976F1130C6282 /* Pods_FLO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F636CE74350DDB47B8DDD37 /* Pods_FLO.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B1658741268104FC00ED8A48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1C522DE267DD61C00D169F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1C522E5267DD61C00D169F7;
+			remoteInfo = FLO;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		4512C73E32291D779EDB4590 /* Pods-FLO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLO.debug.xcconfig"; path = "Target Support Files/Pods-FLO/Pods-FLO.debug.xcconfig"; sourceTree = "<group>"; };
+		4F636CE74350DDB47B8DDD37 /* Pods_FLO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FLO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10D82A126887B2200D57B2A /* LyricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsViewController.swift; sourceTree = "<group>"; };
+		B165873C268104FC00ED8A48 /* FLOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FLOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B165873E268104FC00ED8A48 /* FLOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLOTests.swift; sourceTree = "<group>"; };
+		B1658740268104FC00ED8A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B170C51626830EBF009A62AA /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
+		B1C5100B2680B5800023D270 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B1C522E6267DD61C00D169F7 /* FLO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C522E9267DD61C00D169F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1C522EB267DD61C00D169F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B1C522ED267DD61C00D169F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B1C522ED267DD61C00D169F7 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		B1C522F0267DD61C00D169F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B1C522F2267DD61E00D169F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1C522F5267DD61E00D169F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1C522F7267DD61E00D169F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1C52303267DFF4000D169F7 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		B1C52306267DFF5100D169F7 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		B1C5230E267E01AE00D169F7 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		E1E5D0DEEFE0FA2F519AAD9A /* Pods-FLO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLO.release.xcconfig"; path = "Target Support Files/Pods-FLO/Pods-FLO.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B1C522E3267DD61C00D169F7 /* Frameworks */ = {
+		B1658739268104FC00ED8A48 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B1C522E3267DD61C00D169F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBD5B8184E8976F1130C6282 /* Pods_FLO.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AF27A4D192BCAB8A51A2D36 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4512C73E32291D779EDB4590 /* Pods-FLO.debug.xcconfig */,
+				E1E5D0DEEFE0FA2F519AAD9A /* Pods-FLO.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B165873D268104FC00ED8A48 /* FLOTests */ = {
+			isa = PBXGroup;
+			children = (
+				B165873E268104FC00ED8A48 /* FLOTests.swift */,
+				B1658740268104FC00ED8A48 /* Info.plist */,
+			);
+			path = FLOTests;
+			sourceTree = "<group>";
+		};
 		B1C522DD267DD61C00D169F7 = {
 			isa = PBXGroup;
 			children = (
 				B1C522E8267DD61C00D169F7 /* FLO */,
+				B165873D268104FC00ED8A48 /* FLOTests */,
 				B1C522E7267DD61C00D169F7 /* Products */,
+				5AF27A4D192BCAB8A51A2D36 /* Pods */,
+				D2B393951C6DD16428CE2309 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -49,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				B1C522E6267DD61C00D169F7 /* FLO.app */,
+				B165873C268104FC00ED8A48 /* FLOTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,27 +116,101 @@
 		B1C522E8267DD61C00D169F7 /* FLO */ = {
 			isa = PBXGroup;
 			children = (
+				B1C52314267E150600D169F7 /* Model */,
+				B1C52316267E151700D169F7 /* ViewController */,
+				B1C52315267E150E00D169F7 /* ViewModel */,
+				B1C5230B267DFF6D00D169F7 /* Network */,
+				B1C5230C267DFF7D00D169F7 /* Resourses */,
 				B1C522E9267DD61C00D169F7 /* AppDelegate.swift */,
 				B1C522EB267DD61C00D169F7 /* SceneDelegate.swift */,
-				B1C522ED267DD61C00D169F7 /* ViewController.swift */,
-				B1C522EF267DD61C00D169F7 /* Main.storyboard */,
-				B1C522F2267DD61E00D169F7 /* Assets.xcassets */,
-				B1C522F4267DD61E00D169F7 /* LaunchScreen.storyboard */,
 				B1C522F7267DD61E00D169F7 /* Info.plist */,
 			);
 			path = FLO;
 			sourceTree = "<group>";
 		};
+		B1C5230B267DFF6D00D169F7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B1C5230E267E01AE00D169F7 /* APIManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B1C5230C267DFF7D00D169F7 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				B1C522F2267DD61E00D169F7 /* Assets.xcassets */,
+				B1C522F4267DD61E00D169F7 /* LaunchScreen.storyboard */,
+				B1C522EF267DD61C00D169F7 /* Main.storyboard */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		B1C52314267E150600D169F7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B1C52306267DFF5100D169F7 /* Music.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B1C52315267E150E00D169F7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B170C51626830EBF009A62AA /* MusicPlayer.swift */,
+				B1C52303267DFF4000D169F7 /* PlayerViewModel.swift */,
+				B1C5100B2680B5800023D270 /* Observable.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B1C52316267E151700D169F7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B1C522ED267DD61C00D169F7 /* PlayerViewController.swift */,
+				B10D82A126887B2200D57B2A /* LyricsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D2B393951C6DD16428CE2309 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F636CE74350DDB47B8DDD37 /* Pods_FLO.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B165873B268104FC00ED8A48 /* FLOTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1658745268104FC00ED8A48 /* Build configuration list for PBXNativeTarget "FLOTests" */;
+			buildPhases = (
+				B1658738268104FC00ED8A48 /* Sources */,
+				B1658739268104FC00ED8A48 /* Frameworks */,
+				B165873A268104FC00ED8A48 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1658742268104FC00ED8A48 /* PBXTargetDependency */,
+			);
+			name = FLOTests;
+			productName = FLOTests;
+			productReference = B165873C268104FC00ED8A48 /* FLOTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B1C522E5267DD61C00D169F7 /* FLO */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1C522FA267DD61E00D169F7 /* Build configuration list for PBXNativeTarget "FLO" */;
 			buildPhases = (
+				2C6DB872B1D0606F0B44F184 /* [CP] Check Pods Manifest.lock */,
 				B1C522E2267DD61C00D169F7 /* Sources */,
 				B1C522E3267DD61C00D169F7 /* Frameworks */,
 				B1C522E4267DD61C00D169F7 /* Resources */,
+				18E8E08823B498BD536E8DAD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -96,6 +230,10 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					B165873B268104FC00ED8A48 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = B1C522E5267DD61C00D169F7;
+					};
 					B1C522E5267DD61C00D169F7 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -115,11 +253,19 @@
 			projectRoot = "";
 			targets = (
 				B1C522E5267DD61C00D169F7 /* FLO */,
+				B165873B268104FC00ED8A48 /* FLOTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B165873A268104FC00ED8A48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1C522E4267DD61C00D169F7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -132,18 +278,82 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		18E8E08823B498BD536E8DAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FLO/Pods-FLO-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FLO/Pods-FLO-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FLO/Pods-FLO-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C6DB872B1D0606F0B44F184 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FLO-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		B1658738268104FC00ED8A48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B165873F268104FC00ED8A48 /* FLOTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1C522E2267DD61C00D169F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1C522EE267DD61C00D169F7 /* ViewController.swift in Sources */,
+				B10D82A226887B2200D57B2A /* LyricsViewController.swift in Sources */,
+				B1C5100C2680B5800023D270 /* Observable.swift in Sources */,
+				B1C52307267DFF5100D169F7 /* Music.swift in Sources */,
+				B170C51726830EBF009A62AA /* MusicPlayer.swift in Sources */,
+				B1C522EE267DD61C00D169F7 /* PlayerViewController.swift in Sources */,
+				B1C52304267DFF4000D169F7 /* PlayerViewModel.swift in Sources */,
 				B1C522EA267DD61C00D169F7 /* AppDelegate.swift in Sources */,
+				B1C5230F267E01AE00D169F7 /* APIManager.swift in Sources */,
 				B1C522EC267DD61C00D169F7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B1658742268104FC00ED8A48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1C522E5267DD61C00D169F7 /* FLO */;
+			targetProxy = B1658741268104FC00ED8A48 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B1C522EF267DD61C00D169F7 /* Main.storyboard */ = {
@@ -165,6 +375,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B1658743268104FC00ED8A48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CS3BNMZA76;
+				INFOPLIST_FILE = FLOTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jellysong2.tistory.FLOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FLO.app/FLO";
+			};
+			name = Debug;
+		};
+		B1658744268104FC00ED8A48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CS3BNMZA76;
+				INFOPLIST_FILE = FLOTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jellysong2.tistory.FLOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FLO.app/FLO";
+			};
+			name = Release;
+		};
 		B1C522F8267DD61E00D169F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -283,6 +533,7 @@
 		};
 		B1C522FB267DD61E00D169F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4512C73E32291D779EDB4590 /* Pods-FLO.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -303,6 +554,7 @@
 		};
 		B1C522FC267DD61E00D169F7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1E5D0DEEFE0FA2F519AAD9A /* Pods-FLO.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -324,6 +576,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B1658745268104FC00ED8A48 /* Build configuration list for PBXNativeTarget "FLOTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1658743268104FC00ED8A48 /* Debug */,
+				B1658744268104FC00ED8A48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B1C522E1267DD61C00D169F7 /* Build configuration list for PBXProject "FLO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

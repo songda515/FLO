@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         if #available(iOS 13.0, *){
-            print("Call in SceneDelegate")
+            // Call in SceneDelegate
         }
         else{
             self.window = UIWindow(frame: UIScreen.main.bounds)

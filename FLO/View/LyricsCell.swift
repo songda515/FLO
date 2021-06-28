@@ -22,6 +22,14 @@ class LyricsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        desetPrevLyrics()
+    }
+    
+    func setLyrics(text: String) {
+        lyricsLabel.text = text
+    }
+    
     func setNowLyrics() {
         if #available(iOS 13.0, *) {
             self.backgroundColor = .systemGray5

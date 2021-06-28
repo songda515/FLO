@@ -13,6 +13,7 @@ class PlayerViewController: UIViewController {
     // MARK: - Properties
     var player = MusicPlayer.shared
     var viewModel = PlayerViewModel.shared
+    var timeObserver: Any?
     
     // MARK: - IBOutlet
     @IBOutlet var thumbImage: UIImageView!
@@ -108,7 +109,7 @@ extension PlayerViewController {
     }
     
     func addObserverToPlayer() {
-        player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: DispatchQueue.main) { time in
+        timeObserver = player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: DispatchQueue.main) { time in
             self.updateTime(time: time)
         }
     }

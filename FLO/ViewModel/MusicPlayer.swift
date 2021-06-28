@@ -65,8 +65,13 @@ class MusicPlayer {
         isPlaying = false
     }
     
-    func addPeriodicTimeObserver(forInterval: CMTime, queue: DispatchQueue?, using: @escaping(CMTime) -> Void) {
+    func addPeriodicTimeObserver(forInterval: CMTime, queue: DispatchQueue?, using: @escaping(CMTime) -> Void) -> Any {
         player.addPeriodicTimeObserver(forInterval: forInterval, queue: queue, using: using)
     }
+    
+    func removeTimeObserver(token: Any) {
+        player.removeTimeObserver(token)
+    }
+
 }
 

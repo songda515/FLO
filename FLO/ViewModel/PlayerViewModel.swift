@@ -50,6 +50,7 @@ class PlayerViewModel {
         return music.value.duration
     }
     
+    // MARK: - Initialize
     init() {
         self.apiManager = APIManger()
         self.music = Observable(Music.EMPTY)
@@ -60,6 +61,7 @@ class PlayerViewModel {
         self.prevIndex = -1
     }
     
+    // MARK: - Methods
     func fetchMusic() {
         apiManager.getMusic { (music) in
             print("fetch music ::", music.title)

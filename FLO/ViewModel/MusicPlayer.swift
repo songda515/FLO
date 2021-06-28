@@ -36,6 +36,7 @@ class MusicPlayer {
         return timeText(time: currentValue)
     }
     
+    // MARK: - Methods
     func seek(_ time: CMTime) {
         player.seek(to: time)
     }

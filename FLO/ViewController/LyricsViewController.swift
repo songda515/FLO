@@ -65,6 +65,7 @@ class LyricsViewController: UIViewController {
 
 extension LyricsViewController: UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: - TableView method
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.lyricsCount
     }
@@ -99,7 +100,7 @@ extension LyricsViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension LyricsViewController {
     
-    // MARK: - Custom Function
+    // MARK: - Custom method
     func initializeUI() {
         totalTimeLabel.text = player.timeText(time: Double(viewModel.duration))
         progressSlider.maximumValue = Float(player.duration)

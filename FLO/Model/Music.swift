@@ -14,8 +14,8 @@ struct Music: Codable {
     let title: String
     let duration: Int
     let image: String
-    let file: String // mp3 파일 링크
-    let lyrics: String // 시간으로 구분 된 가사
+    let file: String
+    let lyrics: String
     
 }
 

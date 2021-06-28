@@ -202,19 +202,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xfm-0e-Srp">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xfm-0e-Srp">
                                 <rect key="frame" x="30" y="105" width="354" height="537"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="HwW-c3-Lye">
-                                        <rect key="frame" x="0.0" y="24.5" width="354" height="52.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LyricsCell" id="HwW-c3-Lye" customClass="LyricsCell" customModule="FLO" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="354" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HwW-c3-Lye" id="gac-hw-d9U">
-                                            <rect key="frame" x="0.0" y="0.0" width="354" height="52.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="354" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ Lyrics ~" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HwI-PK-452">
-                                                    <rect key="frame" x="20" y="11" width="314" height="30.5"/>
+                                                    <rect key="frame" x="20" y="11" width="314" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="F4Q-Nh-DqV"/>
                                                     </constraints>
@@ -230,8 +230,16 @@
                                                 <constraint firstItem="HwI-PK-452" firstAttribute="top" secondItem="gac-hw-d9U" secondAttribute="topMargin" id="c0o-Jq-MSf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="tintColor" systemColor="systemPinkColor"/>
+                                        <connections>
+                                            <outlet property="lyricsLabel" destination="HwI-PK-452" id="Ulo-Hs-UxU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="5Do-rJ-mv8" id="WyZ-Bq-m4z"/>
+                                    <outlet property="delegate" destination="5Do-rJ-mv8" id="NcP-g6-CHk"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nxH-PV-TJ2">
                                 <rect key="frame" x="30" y="742" width="354" height="70"/>
@@ -245,6 +253,7 @@
                                         <state key="normal" image="play-button"/>
                                         <state key="selected" image="pause-button"/>
                                         <connections>
+                                            <action selector="touchUpPlayPauseButton:" destination="5Do-rJ-mv8" eventType="touchUpInside" id="4CT-lY-2Rd"/>
                                             <action selector="touchUpPlayPauseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RuL-Fu-Zo6"/>
                                         </connections>
                                     </button>
@@ -267,6 +276,7 @@
                                         </constraints>
                                         <connections>
                                             <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="EBP-Dz-h4A"/>
+                                            <action selector="sliderValueChanged:" destination="5Do-rJ-mv8" eventType="valueChanged" id="I7l-Ws-BwX"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meJ-EN-3F3">
@@ -308,14 +318,14 @@
                                     <action selector="touchUpCloseButton:" destination="5Do-rJ-mv8" eventType="touchUpInside" id="R0u-n2-ptB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQq-L1-kBX">
-                                <rect key="frame" x="30" y="54" width="104" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQq-L1-kBX">
+                                <rect key="frame" x="30" y="54" width="137" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
-                                <state key="normal" title="Toggle OFF">
+                                <state key="normal" title="Seek Mode OFF">
                                     <color key="titleColor" systemColor="systemPinkColor"/>
                                 </state>
-                                <state key="selected" title="Toggle ON"/>
+                                <state key="selected" title="Seek Mode ON"/>
                                 <connections>
                                     <action selector="touchUptoggleButton:" destination="5Do-rJ-mv8" eventType="touchUpInside" id="PxR-OU-6zO"/>
                                 </connections>
@@ -344,6 +354,7 @@
                     <connections>
                         <outlet property="closeButton" destination="NKC-Cb-1p8" id="4KT-xP-3js"/>
                         <outlet property="currentTimeLabel" destination="meJ-EN-3F3" id="gMB-G4-xnh"/>
+                        <outlet property="lyricsTableView" destination="Xfm-0e-Srp" id="k0G-N1-ov7"/>
                         <outlet property="playPauseButton" destination="moZ-zL-0pV" id="bwy-Gm-sue"/>
                         <outlet property="progressSlider" destination="DCe-8r-rjK" id="eGk-Yi-p72"/>
                         <outlet property="toggleButton" destination="EQq-L1-kBX" id="C9Y-bd-51R"/>

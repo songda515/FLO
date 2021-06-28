@@ -13,45 +13,38 @@ class MusicPlayer {
     static let shared = MusicPlayer()
     
     // MARK: - Properties
-    var player: AVAudioPlayer!
-    var timer: Timer!
-    var url: String!
+    var player = AVPlayer()
+    var isPlaying: Bool = false
     
-    var duration: TimeInterval {
-        return self.player.duration
+    var duration: Double {
+        return player.currentItem?.duration.seconds ?? 0
     }
     
-    var currentValue: Float {
-        return Float(self.player.currentTime)
+    var totalTimeText: String {
+        return timeText(time: duration)
     }
     
-    var maximumValue: Float {
-        return Float(self.player.duration)
+    var currentTime: CMTime {
+        return player.currentItem?.currentTime() ?? CMTime.zero
     }
     
-    var totalTime: String {
-        return timeText(time: self.player.duration)
+    var currentValue: Double {
+        return player.currentItem?.currentTime().seconds ?? 0
     }
     
-    var currentTime: String {
-        return timeText(time: self.player.currentTime)
+    var currentTimeText: String {
+        return timeText(time: currentValue)
     }
     
-    func setCurrentTime(_ time: TimeInterval) {
-        self.player.currentTime = time
+    // MARK: - Methods
+    func seek(_ time: CMTime) {
+        player.seek(to: time)
     }
     
-    func timeText(time: TimeInterval) -> String {
+    func timeText(time: Double) -> String {
         let minute: Int = Int(time / 60)
         let second: Int = Int(time.truncatingRemainder(dividingBy: 60))
         return String(format: "%02ld:%02ld", minute, second)
-    }
-    
-    var timeInt: Int {
-        let time = self.player.currentTime
-        let minute: Int = Int(time / 60)
-        let second: Int = Int(time.truncatingRemainder(dividingBy: 60))
-        return minute*60 + second
     }
 
     func initPlayer(url urlString: String) {
@@ -59,25 +52,27 @@ class MusicPlayer {
             print("wrong url")
             return
         }
-        do {
-            let soundData = try Data(contentsOf: url)
-            self.player = try AVAudioPlayer(data: soundData)
-        } catch let error as NSError {
-            print("플레이어 초기화 실패")
-            print("코드: \(error.code), 메세지 : \(error.localizedDescription)")
-        }
+        let item = AVPlayerItem(url: url)
+        player.replaceCurrentItem(with: item)
     }
     
-    func play(_ block: @escaping (Timer) -> Void) {
-        self.player.play()
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: block)
-        self.timer.fire()
+    func play() {
+        player.play()
+        isPlaying = true
     }
     
     func pause() {
-        self.player.pause()
-        self.timer.invalidate()
-        self.timer = nil
+        player.pause()
+        isPlaying = false
     }
+    
+    func addPeriodicTimeObserver(forInterval: CMTime, queue: DispatchQueue?, using: @escaping(CMTime) -> Void) -> Any {
+        player.addPeriodicTimeObserver(forInterval: forInterval, queue: queue, using: using)
+    }
+    
+    func removeTimeObserver(token: Any) {
+        player.removeTimeObserver(token)
+    }
+
 }
 

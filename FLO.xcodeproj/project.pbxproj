@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B10D82A226887B2200D57B2A /* LyricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10D82A126887B2200D57B2A /* LyricsViewController.swift */; };
 		B10D82A4268882F200D57B2A /* Images in Resources */ = {isa = PBXBuildFile; fileRef = B10D82A3268882F200D57B2A /* Images */; };
+		B11164F42688974C0089E07C /* LyricsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11164F32688974C0089E07C /* LyricsCell.swift */; };
 		B165873F268104FC00ED8A48 /* FLOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B165873E268104FC00ED8A48 /* FLOTests.swift */; };
 		B170C51726830EBF009A62AA /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170C51626830EBF009A62AA /* MusicPlayer.swift */; };
 		B1C5100C2680B5800023D270 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5100B2680B5800023D270 /* Observable.swift */; };
@@ -39,6 +40,7 @@
 		4F636CE74350DDB47B8DDD37 /* Pods_FLO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FLO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B10D82A126887B2200D57B2A /* LyricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsViewController.swift; sourceTree = "<group>"; };
 		B10D82A3268882F200D57B2A /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
+		B11164F32688974C0089E07C /* LyricsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsCell.swift; sourceTree = "<group>"; };
 		B165873C268104FC00ED8A48 /* FLOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FLOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B165873E268104FC00ED8A48 /* FLOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLOTests.swift; sourceTree = "<group>"; };
 		B1658740268104FC00ED8A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B11164F52688976F0089E07C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B11164F32688974C0089E07C /* LyricsCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B165873D268104FC00ED8A48 /* FLOTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +129,7 @@
 		B1C522E8267DD61C00D169F7 /* FLO */ = {
 			isa = PBXGroup;
 			children = (
+				B11164F52688976F0089E07C /* View */,
 				B1C52314267E150600D169F7 /* Model */,
 				B1C52316267E151700D169F7 /* ViewController */,
 				B1C52315267E150E00D169F7 /* ViewModel */,
@@ -338,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B10D82A226887B2200D57B2A /* LyricsViewController.swift in Sources */,
+				B11164F42688974C0089E07C /* LyricsCell.swift in Sources */,
 				B1C5100C2680B5800023D270 /* Observable.swift in Sources */,
 				B1C52307267DFF5100D169F7 /* Music.swift in Sources */,
 				B170C51726830EBF009A62AA /* MusicPlayer.swift in Sources */,

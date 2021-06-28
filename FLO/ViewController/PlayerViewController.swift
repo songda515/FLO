@@ -12,7 +12,8 @@ class PlayerViewController: UIViewController {
     
     // MARK: - Properties
     var player = MusicPlayer.shared
-    var viewModel = PlayerViewModel()
+    var viewModel = PlayerViewModel.shared
+    var timeObserver: Any?
     
     // MARK: - IBOutlet
     @IBOutlet var thumbImage: UIImageView!
@@ -30,28 +31,24 @@ class PlayerViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
         addGestureLyricsView()
         bindViewModel()
+        addObserverToPlayer()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        playPauseButton.isSelected = player.isPlaying
     }
     
     // MARK: - IBAction
     @IBAction func touchUpPlayPauseButton(_ sender: UIButton) {
-        sender.isSelected.toggle()
-        
-        if sender.isSelected {
-            self.player.play { Timer in
-                if self.progressSlider.isTracking { return }
-                self.currentTimeLabel.text = self.player.currentTime
-                self.progressSlider.value = self.player.currentValue
-                self.viewModel.getCurrentLyrics { lyrics in
-                    self.lyricsLabel.text = lyrics
-                }
-            }
+        if player.isPlaying {
+            player.pause()
         } else {
-            self.player.pause()
+            player.play()
         }
+        sender.isSelected = player.isPlaying
     }
     
     @IBAction func touchUpHeartButton(_ sender: UIButton) {
@@ -59,11 +56,10 @@ class PlayerViewController: UIViewController {
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
-        self.currentTimeLabel.text = self.player.timeText(time: TimeInterval(sender.value))
-        if sender.isTracking { return }
-        self.player.setCurrentTime(TimeInterval(sender.value))
-        self.viewModel.getCurrentLyrics { lyrics in
-            self.lyricsLabel.text = lyrics
+        let seconds = Double(sender.value)
+        currentTimeLabel.text = player.timeText(time: seconds)
+        if sender.isTracking == false {
+            player.seek(CMTime(seconds: seconds, preferredTimescale: 100))
         }
     }
     
@@ -99,18 +95,30 @@ extension PlayerViewController {
     }
     
     func initializeUI() {
-        self.albumLabel.text = viewModel.album
-        self.singerLabel.text = viewModel.singer
-        self.titleLabel.text = viewModel.title
-        self.thumbImage.image = UIImage(data: viewModel.imageData)
+        albumLabel.text = viewModel.album
+        singerLabel.text = viewModel.singer
+        titleLabel.text = viewModel.title
+        thumbImage.image = UIImage(data: viewModel.imageData)
+        progressSlider.maximumValue = Float(viewModel.duration)
+        totalTimeLabel.text = player.timeText(time: Double(viewModel.duration))
+        updateTime(time: CMTime.zero)
     }
     
     func initializePlayer() {
-        self.player.initPlayer(url: viewModel.musicFileUrl)
-        self.progressSlider.maximumValue = player.maximumValue
-        self.progressSlider.minimumValue = 0
-        self.progressSlider.value = player.currentValue
-        self.totalTimeLabel.text = player.totalTime
+        player.initPlayer(url: viewModel.musicFileUrl)
+    }
+    
+    func addObserverToPlayer() {
+        timeObserver = player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: DispatchQueue.main) { time in
+            self.updateTime(time: time)
+        }
+    }
+    
+    func updateTime(time: CMTime) {
+        currentTimeLabel.text = player.currentTimeText
+        progressSlider.value = Float(player.currentValue)
+        let index = viewModel.getCurrentLyricsIndex()
+        lyricsLabel.text = viewModel.lyricsArray[index]
     }
 }
 

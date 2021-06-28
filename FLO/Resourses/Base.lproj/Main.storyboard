@@ -313,7 +313,8 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
-                                <state key="normal" image="xmark" catalog="system"/>
+                                <inset key="contentEdgeInsets" minX="7" minY="7" maxX="7" maxY="7"/>
+                                <state key="normal" image="close"/>
                                 <connections>
                                     <action selector="touchUpCloseButton:" destination="5Do-rJ-mv8" eventType="touchUpInside" id="R0u-n2-ptB"/>
                                 </connections>
@@ -375,11 +376,11 @@
         </designable>
     </designables>
     <resources>
+        <image name="close" width="1386" height="1386"/>
         <image name="heart" width="512" height="512"/>
         <image name="heart-fill" width="512" height="512"/>
         <image name="pause-button" width="256" height="256"/>
         <image name="play-button" width="256" height="256"/>
-        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

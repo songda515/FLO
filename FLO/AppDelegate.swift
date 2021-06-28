@@ -10,21 +10,11 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow? = nil
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         sleep(2)
-        if #available(iOS 13.0, *){
-            // Call in SceneDelegate
-        }
-        else{
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            let storyboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
-            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "LaunchScreenVC")
-            window?.makeKeyAndVisible()
-        }
-        
         return true
     }
 

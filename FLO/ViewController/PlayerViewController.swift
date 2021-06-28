@@ -32,12 +32,12 @@ class PlayerViewController: UIViewController {
         super.viewDidLoad()
         addGestureLyricsLabel()
         bindViewModel()
-        addObserverToPlayer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         playPauseButton.isSelected = player.isPlaying
+        addObserverToPlayer()
     }
     
     // MARK: - IBAction

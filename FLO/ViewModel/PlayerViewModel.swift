@@ -65,12 +65,11 @@ class PlayerViewModel {
     func fetchMusic() {
         apiManager.getMusic { (music) in
             print("fetch music ::", music.title)
-            self.music = Observable(music)
-            let imageURL = music.image
-            self.apiManager.loadImageData(url: imageURL) { (image) in
+            self.apiManager.loadImageData(url: music.image) { (image) in
                 self.imageData = image
+                self.music.value = music
+                self.getLyrics()
             }
-            self.getLyrics()
         }
     }
     

@@ -25,15 +25,12 @@ class PlayerViewController: UIViewController {
     @IBOutlet var currentTimeLabel: UILabel!
     @IBOutlet var totalTimeLabel: UILabel!
     @IBOutlet weak var heartButton: UIButton!
-    @IBOutlet weak var lyricsView: UIView!
     @IBOutlet weak var lyricsLabel: UILabel!
-    @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        addGestureLyricsView()
+        addGestureLyricsLabel()
         bindViewModel()
         addObserverToPlayer()
     }
@@ -65,7 +62,7 @@ class PlayerViewController: UIViewController {
         }
     }
     
-    @IBAction func tappedLyricsView(_ sender: UIView) {
+    @IBAction func tappedLyricsLabel(_ sender: UILabel) {
         if #available(iOS 13.0, *) {
             let lyricsVC = storyboard!.instantiateViewController(identifier: "LyricsViewController")
             lyricsVC.modalPresentationStyle = .fullScreen
@@ -81,9 +78,10 @@ class PlayerViewController: UIViewController {
 extension PlayerViewController {
     
     // MARK: - Custom method
-    func addGestureLyricsView() {
-        let tapGasture = UITapGestureRecognizer(target: self, action: #selector(tappedLyricsView(_:)))
-        self.lyricsView.addGestureRecognizer(tapGasture)
+    func addGestureLyricsLabel() {
+        let tapGasture = UITapGestureRecognizer(target: self, action: #selector(tappedLyricsLabel(_:)))
+        lyricsLabel.isUserInteractionEnabled = true
+        lyricsLabel.addGestureRecognizer(tapGasture)
     }
     
     func bindViewModel() {
@@ -103,9 +101,6 @@ extension PlayerViewController {
         thumbImage.image = UIImage(data: viewModel.imageData)
         progressSlider.maximumValue = Float(viewModel.duration)
         totalTimeLabel.text = player.timeText(time: Double(viewModel.duration))
-        stackView.isHidden = false
-        indicatorView.isHidden = true
-        updateTime(time: CMTime.zero)
     }
     
     func initializePlayer() {

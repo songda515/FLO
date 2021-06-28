@@ -54,6 +54,7 @@ class MusicPlayer {
         }
         let item = AVPlayerItem(url: url)
         player.replaceCurrentItem(with: item)
+        addPlayerEndObserver()
     }
     
     func play() {
@@ -73,6 +74,18 @@ class MusicPlayer {
     func removeTimeObserver(token: Any) {
         player.removeTimeObserver(token)
     }
-
+    
+    func addPlayerEndObserver() {
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(playerItemDidReachEnd),
+            name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+            object: nil
+        )
+    }
+    
+    @objc func playerItemDidReachEnd() {
+        seek(CMTime.zero)
+        play()
+    }
 }
 

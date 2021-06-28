@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kTx-dQ-v5t">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kTx-dQ-v5t">
                                 <rect key="frame" x="30" y="74" width="354" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Album" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyL-r1-9XX">
@@ -66,7 +66,7 @@
                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleAspectFit" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiE-m2-bZQ">
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiE-m2-bZQ">
                                                 <rect key="frame" x="324" y="0.0" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="daX-QF-Pg7"/>
@@ -160,6 +160,13 @@
                                     <constraint firstItem="Wax-WS-gmf" firstAttribute="centerY" secondItem="kx8-ls-Mqu" secondAttribute="centerY" id="xJA-PL-dwo"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="u4J-cM-H37">
+                                <rect key="frame" x="197" y="443" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="0Qd-2h-s8x"/>
+                                    <constraint firstAttribute="height" constant="20" id="mpQ-yO-wPa"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -171,6 +178,8 @@
                             <constraint firstItem="kx8-ls-Mqu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Uov-gg-xXq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kx8-ls-Mqu" secondAttribute="bottom" constant="50" id="WvO-sY-8Rj"/>
                             <constraint firstItem="kTx-dQ-v5t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="YeO-gj-4F3"/>
+                            <constraint firstItem="u4J-cM-H37" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="a39-SF-vRT"/>
+                            <constraint firstItem="u4J-cM-H37" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="jDg-Bc-FBc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kTx-dQ-v5t" secondAttribute="trailing" constant="30" id="qyD-cz-K35"/>
                             <constraint firstItem="RfZ-uH-ia6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="vC6-xe-vB0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kx8-ls-Mqu" secondAttribute="trailing" constant="30" id="wjg-gM-Xhd"/>
@@ -180,11 +189,13 @@
                         <outlet property="albumLabel" destination="WyL-r1-9XX" id="hLY-ML-YAI"/>
                         <outlet property="currentTimeLabel" destination="Os2-pf-bi0" id="SvA-8Z-oDi"/>
                         <outlet property="heartButton" destination="jiE-m2-bZQ" id="g5A-Wg-OkT"/>
+                        <outlet property="indicatorView" destination="u4J-cM-H37" id="ppE-2c-LqE"/>
                         <outlet property="lyricsLabel" destination="IH8-ul-eUb" id="Kdw-kC-2ie"/>
                         <outlet property="lyricsView" destination="sxY-Zc-IFJ" id="umL-tc-c6q"/>
                         <outlet property="playPauseButton" destination="Wax-WS-gmf" id="6AP-TJ-XWQ"/>
                         <outlet property="progressSlider" destination="82b-0z-UKh" id="R58-yx-uaK"/>
                         <outlet property="singerLabel" destination="Xh6-Wp-lLb" id="HXC-uD-G4A"/>
+                        <outlet property="stackView" destination="kTx-dQ-v5t" id="ugw-CC-tRj"/>
                         <outlet property="thumbImage" destination="ubN-11-fut" id="P5D-uo-lME"/>
                         <outlet property="titleLabel" destination="NXp-fx-COD" id="xDW-gW-y7b"/>
                         <outlet property="totalTimeLabel" destination="Zz0-nL-Hd4" id="asi-of-PpB"/>

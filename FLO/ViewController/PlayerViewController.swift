@@ -27,6 +27,8 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var heartButton: UIButton!
     @IBOutlet weak var lyricsView: UIView!
     @IBOutlet weak var lyricsLabel: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -101,6 +103,8 @@ extension PlayerViewController {
         thumbImage.image = UIImage(data: viewModel.imageData)
         progressSlider.maximumValue = Float(viewModel.duration)
         totalTimeLabel.text = player.timeText(time: Double(viewModel.duration))
+        stackView.isHidden = false
+        indicatorView.isHidden = true
         updateTime(time: CMTime.zero)
     }
     

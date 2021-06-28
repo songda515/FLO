@@ -32,10 +32,6 @@ class LyricsViewController: UIViewController {
         addObserverToPlayer()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removePeriodicTimeObserver()
@@ -83,12 +79,10 @@ extension LyricsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         lyricsTableView.reloadData()
-        viewModel.prevIndex = -1
         if toggleButton.isSelected {
             let seconds = viewModel.lyricsDict.sorted { $0.key < $1.key }[indexPath.row].key
             let time = CMTime(seconds: Double(seconds), preferredTimescale: 100)
             player.seek(time)
-            print("selected", time, indexPath.row)
         } else {
             dismiss(animated: true, completion: nil)
         }
@@ -111,7 +105,6 @@ extension LyricsViewController {
         progressSlider.maximumValue = Float(player.duration)
         playPauseButton.isSelected = player.isPlaying
         lyricsTableView.reloadData()
-        viewModel.prevIndex = -1
         updateTime(player.currentTime)
     }
     
@@ -124,8 +117,7 @@ extension LyricsViewController {
     
     func removePeriodicTimeObserver() {
         if let token = timeObserver {
-            player.removeTimeObserver(token: token
-            )
+            player.removeTimeObserver(token: token)
             timeObserver = nil
         }
     }
@@ -140,21 +132,17 @@ extension LyricsViewController {
     }
     
     func updateLyricsTableViewCell(prev: Int, index: Int) {
-        print(viewModel.prevIndex, index)
-
         lyricsTableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .middle, animated: true)
+        
         let indexPath = IndexPath(row: index, section: 0)
         if let cell = lyricsTableView.cellForRow(at: indexPath) as? LyricsCell {
             cell.setNowLyrics()
-            print("set!! ", index) //, cell.lyricsLabel.textColor)
         }
-        
+
         guard prev >= 0 else { return }
         let prevIndexPath = IndexPath(row: prev, section: 0)
         if let prevCell = lyricsTableView.cellForRow(at: prevIndexPath) as? LyricsCell {
             prevCell.desetPrevLyrics()
-            //lyricsTableView.deselectRow(at: prevIndexPath, animated: true)
-            print("deset!! ", prev) //, prevCell.lyricsLabel.textColor)
         }
     }
 }

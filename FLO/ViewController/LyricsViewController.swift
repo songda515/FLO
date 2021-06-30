@@ -79,11 +79,11 @@ extension LyricsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        lyricsTableView.reloadData()
         if toggleButton.isSelected {
             let seconds = viewModel.lyricsDict.sorted { $0.key < $1.key }[indexPath.row].key
             let time = CMTime(seconds: Double(seconds), preferredTimescale: 100)
             player.seek(time)
+            updateTime(time)
         } else {
             dismiss(animated: true, completion: nil)
         }

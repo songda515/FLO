@@ -40,6 +40,7 @@
 		B11164F32688974C0089E07C /* LyricsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsCell.swift; sourceTree = "<group>"; };
 		B13E24A3268A200600F121B6 /* FLO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B13E24A4268A200600F121B6 /* FLOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FLOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B15F8AAB268C9CAD00CBE562 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B165873E268104FC00ED8A48 /* FLOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLOTests.swift; sourceTree = "<group>"; };
 		B1658740268104FC00ED8A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B170C51626830EBF009A62AA /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
@@ -99,6 +100,7 @@
 				B10D82A3268882F200D57B2A /* Images */,
 				B13E24A3268A200600F121B6 /* FLO.app */,
 				B13E24A4268A200600F121B6 /* FLOTests.xctest */,
+				B15F8AAB268C9CAD00CBE562 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};

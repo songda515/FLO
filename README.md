@@ -43,6 +43,10 @@
 4. 토글 버튼 off - 특정 가사 터치 시 전체 가사 화면 닫기
 5. 전체 가사 화면 닫기 버튼을 누르면, 음악 재생 화면으로 이동되도록 개발
 
+## FLO 앱 개발 일지
+### [#1. MVVM 패턴과 Data Binding](https://jellysong.tistory.com/105)
+### [#2. TableView 로 가사 화면 개발하기](https://jellysong.tistory.com/106)
+
 <details>
 <summary>해결하지 못한 이슈</summary>
   <ul>
